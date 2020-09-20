@@ -18,21 +18,19 @@ public class Matrix {
             System.out.println();
         }
         System.out.println("matrix"+name+" is. ");               //this for loop for print the proper matrix.
-        for (i = 0;i<3;i++){                                       //this For loop print original matrix.
+        printt(matrix);
+    }
+    private static void printt(int matrix[][]){                 //printt function for only print matrix.
+        for (i = 0;i<3;i++){                                       
             for (j=0;j<3;j++){
                 System.out.print(matrix[i][j]+" ");
             }
             System.out.println();
         }
     }
-    private static void transpose(String name,int matrix[][]){      //for transpose matrix.
+    private static void transpose(String name,int matrix[][]){      //transpose matrix.
         System.out.println("Original matrix"+name+" : ");
-        for (i = 0;i<3;i++){                                       //this For loop print original matrix.
-            for (j=0;j<3;j++){
-                System.out.print(matrix[i][j]+" ");
-            }
-            System.out.println();
-        }
+        printt(matrix);                                       //print original matrix using printt function.
         System.out.println();
 
         System.out.println("Transpose matrix"+name+" : ");        //then transpose matrix.
