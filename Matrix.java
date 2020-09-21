@@ -50,7 +50,7 @@ public class copyMat {
 
     public static void main(String[] args) {
         System.out.println("This program only for Square matrix.");
-        
+
         do{
             System.out.print("Enter the row and column of matrix : ");
             rowc = s.nextInt();
@@ -104,9 +104,9 @@ public class copyMat {
                 }
                 System.out.print("Do you want to continue (Y/N): ");
                 rerun = s.next();
-                System.out.print("Do you want to re enter the elements (Y/N): ");
-                rerunelement = s.next();
-            } while (rerun.equals("y") || rerun.equals("Y"));   
+            } while (rerun.equals("y") || rerun.equals("Y"));
+            System.out.print("Do you want to re enter the elements (Y/N): ");
+            rerunelement = s.next();
         }while (rerunelement.equals("y")||rerunelement.equals("Y"));
     }
 }
