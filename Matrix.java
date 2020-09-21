@@ -2,7 +2,7 @@ package com.example.java;
 
 import java.util.Scanner;
 
-public class copyMat {
+public class matrix {
     private static Scanner s = new Scanner(System.in);     //for user input.
     private static int i, j, k;                       //looping variable define upper becoz of that low variable creation.
     private static int rowc;
