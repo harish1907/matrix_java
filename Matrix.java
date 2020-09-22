@@ -2,11 +2,11 @@ package com.example.java;
 
 import java.util.Scanner;
 
-public class matrix {
+public class copyMat {
     private static Scanner s = new Scanner(System.in);     //for user input.
     private static int i, j, k;                       //looping variable define upper becoz of that low variable creation.
     private static int rowc;
-    private static int matrixA[][], matrixB[][], answer[][];   //null matrix.
+    private static int matrixA[][], matrixB[][], answer[][];   //null 3x3 matrix.
     private static String rerun;                     //for rerun the program.
     private static String rerunelement;
 
@@ -105,7 +105,8 @@ public class matrix {
                 System.out.print("Do you want to continue (Y/N): ");
                 rerun = s.next();
             } while (rerun.equals("y") || rerun.equals("Y"));
-            System.out.print("Do you want to continue re enter the element and execute program. ");
+            System.out.println("Do you want to proper exit the program press n two time.");
+            System.out.println("Do you want to continue re enter the element and execute program. ");
             System.out.print("Do you want to re enter the elements (Y/N): ");
             rerunelement = s.next();
         }while (rerunelement.equals("y")||rerunelement.equals("Y"));
