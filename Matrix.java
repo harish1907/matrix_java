@@ -105,7 +105,6 @@ public class copyMat {
                 System.out.print("Do you want to continue (Y/N): ");
                 rerun = s.next();
             } while (rerun.equals("y") || rerun.equals("Y"));
-            System.out.println("Do you want to proper exit the program press n two time.");
             System.out.println("Do you want to continue re enter the element and execute program. ");
             System.out.print("Do you want to re enter the elements (Y/N): ");
             rerunelement = s.next();
