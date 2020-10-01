@@ -2,13 +2,14 @@ package com.example.java;
 
 import java.util.Scanner;
 
-public class copyMat {
+public class Matrix {
     private static Scanner s = new Scanner(System.in);     //for user input.
     private static int i, j, k;                       //looping variable define upper becoz of that low variable creation.
     private static int rowc;
-    private static int matrixA[][], matrixB[][], answer[][];   //null 3x3 matrix.
+    private static int matrixA[][], matrixB[][], answer[][];   //null matrix.
     private static String rerun;                     //for rerun the program.
     private static String rerunelement;
+    private static String reenter;
 
     private static void userinput(String name, int matrix[][]) {                //this function for user input on both the matrixA and matrixB.
         System.out.println("Enter the matrix" + name + " elements. ");
@@ -16,7 +17,7 @@ public class copyMat {
             for (j = 0; j < rowc; j++) {
                 System.out.print("Enter the " + k + " element : ");
                 matrix[i][j] = s.nextInt();
-                k += 1;
+                k++;
             }
             System.out.println();
         }
@@ -34,7 +35,6 @@ public class copyMat {
     }
 
     private static void transpose(String name, int matrix[][]) {      //for transpose matrix.
-        System.out.println("Original matrix" + name + " : ");
         printt(matrix, name);
 
         System.out.println("Transpose matrix" + name + " : ");        //then transpose matrix.
@@ -52,17 +52,21 @@ public class copyMat {
         System.out.println("This program only for Square matrix.");
 
         do{
-            System.out.print("Enter the row and column of matrix : ");
-            rowc = s.nextInt();
-            matrixA = new int[rowc][rowc];
-            matrixB = new int[rowc][rowc];
-            answer = new int[rowc][rowc];
-            k = 1;                                             //k is the number of element the always increase in the loop that why before loop we define k = 1.
-            userinput("A", matrixA);                      //user input in matrixA.
-            k = 1;
-            userinput("B", matrixB);                      //user input in matrixB.
-            printt(matrixA, "A");
-            printt(matrixB, "B");
+            do{
+                System.out.print("Enter the row and column of matrix : ");
+                rowc = s.nextInt();
+                matrixA = new int[rowc][rowc];
+                matrixB = new int[rowc][rowc];
+                answer = new int[rowc][rowc];
+                k = 1;                                             //k is the number of element the always increase in the loop that why before loop we define k = 1.
+                userinput("A", matrixA);                      //user input in matrixA.
+                k = 1;
+                userinput("B", matrixB);                      //user input in matrixB.
+                printt(matrixA, "A");
+                printt(matrixB, "B");
+                System.out.print("Do you want to reEnter the element (Y/N) : ");
+                reenter = s.next();
+            }while(reenter.equals("Y")||reenter.equals("y"));
             do {
                 System.out.println("1.addition of two matrix.");
                 System.out.println("2.subtraction of two matrix.");
@@ -102,11 +106,10 @@ public class copyMat {
                     default:
                         System.out.println("Invalid choice.");
                 }
-                System.out.print("Do you want to continue (Y/N): ");
+                System.out.print("Do you want to continue for check rest of option (Y/N) : ");
                 rerun = s.next();
             } while (rerun.equals("y") || rerun.equals("Y"));
-            System.out.println("Do you want to continue re enter the element and execute program. ");
-            System.out.print("Do you want to re enter the elements (Y/N): ");
+            System.out.print("Do you want to rerun all-over program (Y/N) : ");
             rerunelement = s.next();
         }while (rerunelement.equals("y")||rerunelement.equals("Y"));
     }
