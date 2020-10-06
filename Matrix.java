@@ -2,19 +2,20 @@ package com.example.java;
 
 import java.util.Scanner;
 
-public class Matrix {
+public class Matrix{
     private static Scanner s = new Scanner(System.in);     //for user input.
     private static int i, j, k;                       //looping variable define upper becoz of that low variable creation.
-    private static int rowc;
+    private static int row,col;
     private static int matrixA[][], matrixB[][], answer[][];   //null matrix.
     private static String rerun;                     //for rerun the program.
     private static String rerunelement;
     private static String reenter;
 
     private static void userinput(String name, int matrix[][]) {                //this function for user input on both the matrixA and matrixB.
+        k=1;
         System.out.println("Enter the matrix" + name + " elements. ");
-        for (i = 0; i < rowc; i++) {
-            for (j = 0; j < rowc; j++) {
+        for (i = 0; i < row; i++) {
+            for (j = 0; j < col; j++) {
                 System.out.print("Enter the " + k + " element : ");
                 matrix[i][j] = s.nextInt();
                 k++;
@@ -23,25 +24,23 @@ public class Matrix {
         }
     }
 
-    private static void printt(int matrix[][], String name) {
-        System.out.println("matrix" + name + " is. ");               //this for loop for print the proper matrix.
-        for (i = 0; i < rowc; i++) {                                       //this For loop print original matrix.
-            for (j = 0; j < rowc; j++) {
+    private static void printtt(String name, int matrix[][]) {
+        int i, j;
+        System.out.println("Matrix" + name + " is : ");
+        for (i = 0; i < row; i++) {                                       //this For loop print original matrix.
+            for (j = 0; j < col; j++) {
                 System.out.print(matrix[i][j] + "  ");
             }
             System.out.println();
         }
-        System.out.println();
     }
 
     private static void transpose(String name, int matrix[][]) {      //for transpose matrix.
-        printt(matrix, name);
-
+        printtt(name,matrix);
         System.out.println("Transpose matrix" + name + " : ");        //then transpose matrix.
-        for (i = 0; i < rowc; i++) {
-            for (j = 0; j < rowc; j++) {
-                answer[i][j] = matrix[j][i];
-                System.out.print(answer[i][j] + "  ");
+        for (i = 0; i < col; i++) {
+            for (j = 0; j < row; j++) {
+                System.out.print(matrix[j][i] + "  ");
             }
             System.out.println();
         }
@@ -49,21 +48,20 @@ public class Matrix {
     }
 
     public static void main(String[] args) {
-        System.out.println("This program only for Square matrix.");
-
         do{
             do{
-                System.out.print("Enter the row and column of matrix : ");
-                rowc = s.nextInt();
-                matrixA = new int[rowc][rowc];
-                matrixB = new int[rowc][rowc];
-                answer = new int[rowc][rowc];
-                k = 1;                                             //k is the number of element the always increase in the loop that why before loop we define k = 1.
+                System.out.print("Enter the row of matrix : ");
+                row = s.nextInt();
+                System.out.print("Enter the column of matrix : ");
+                col = s.nextInt();
+                matrixA = new int[row][col];
+                matrixB = new int[row][col];
+                answer = new int[row][col];
                 userinput("A", matrixA);                      //user input in matrixA.
-                k = 1;
                 userinput("B", matrixB);                      //user input in matrixB.
-                printt(matrixA, "A");
-                printt(matrixB, "B");
+                printtt("A",matrixA);
+                printtt("B",matrixB);
+
                 System.out.print("Do you want to reEnter the element (Y/N) : ");
                 reenter = s.next();
             }while(reenter.equals("Y")||reenter.equals("y"));
@@ -76,11 +74,12 @@ public class Matrix {
 
                 switch (choice) {
                     case 1:
+                        printtt("A",matrixA);
+                        printtt("B",matrixB);
+                        System.out.println();
                         System.out.println("Addition of matrixA and matrixB : ");
-                        printt(matrixA,"A");
-                        printt(matrixB,"B");
-                        for (i = 0; i < rowc; i++) {
-                            for (j = 0; j < rowc; j++) {
+                        for (i = 0; i < row; i++) {
+                            for (j = 0; j < col; j++) {
                                 answer[i][j] = matrixA[i][j] + matrixB[i][j];         //addition of 2 matrix.
                                 System.out.print(answer[i][j] + "  ");
                             }
@@ -88,11 +87,12 @@ public class Matrix {
                         }
                         break;
                     case 2:
+                        printtt("A",matrixA);
+                        printtt("B",matrixB);
+                        System.out.println();
                         System.out.println("Subtraction of matrixA and matrixB : ");
-                        printt(matrixA,"A");
-                        printt(matrixB,"B");
-                        for (i = 0; i < rowc; i++) {
-                            for (j = 0; j < rowc; j++) {
+                        for (i = 0; i < row; i++) {
+                            for (j = 0; j < col; j++) {
                                 answer[i][j] = matrixA[i][j] - matrixB[i][j];         //subtraction of 2 matrix.
                                 System.out.print(answer[i][j] + "  ");
                             }
